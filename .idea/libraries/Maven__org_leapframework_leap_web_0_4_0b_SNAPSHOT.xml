@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.leapframework:leap-web:0.4.0b-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/leapframework/leap-web/0.4.0b-SNAPSHOT/leap-web-0.4.0b-20161215.052526-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/leapframework/leap-web/0.4.0b-SNAPSHOT/leap-web-0.4.0b-20161215.052526-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/leapframework/leap-web/0.4.0b-SNAPSHOT/leap-web-0.4.0b-20161215.052526-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

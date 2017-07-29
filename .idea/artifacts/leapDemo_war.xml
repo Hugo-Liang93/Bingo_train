@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="leapDemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="leapDemo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="leapDemo:war exploded" />
+    </root>
+  </artifact>
+</component>

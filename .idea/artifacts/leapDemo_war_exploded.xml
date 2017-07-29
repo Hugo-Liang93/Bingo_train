@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="leapDemo:war exploded">
+    <output-path>$PROJECT_DIR$/target/leapDemo-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="leapDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-agent/0.4.0b-SNAPSHOT/leap-agent-0.4.0b-20161215.052501-3.jar" output-file-name="leap-agent-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-lang/0.4.0b-SNAPSHOT/leap-lang-0.4.0b-20161215.052500-3.jar" output-file-name="leap-lang-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-core/0.4.0b-SNAPSHOT/leap-core-0.4.0b-20161215.052507-3.jar" output-file-name="leap-core-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-db/0.4.0b-SNAPSHOT/leap-db-0.4.0b-20161215.052512-3.jar" output-file-name="leap-db-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-orm/0.4.0b-SNAPSHOT/leap-orm-0.4.0b-20161215.052518-3.jar" output-file-name="leap-orm-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-web/0.4.0b-SNAPSHOT/leap-web-0.4.0b-20161215.052526-3.jar" output-file-name="leap-web-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-websecurity/0.4.0b-SNAPSHOT/leap-websecurity-0.4.0b-20161215.052530-3.jar" output-file-name="leap-websecurity-0.4.0b-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/leapframework/leap-htpl/0.4.0b-SNAPSHOT/leap-htpl-0.4.0b-20161215.052528-3.jar" output-file-name="leap-htpl-0.4.0b-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.0.13" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.0.13" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.26" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/leapDemo-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="leapDemo/web/Web" />
+    </root>
+  </artifact>
+</component>
