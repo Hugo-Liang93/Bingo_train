@@ -1,61 +1,94 @@
 package demo.model;
 
-/**
- * Created by liangwenhui on 2017/7/28.
- */
+import leap.orm.annotation.Id;
+import leap.orm.model.Model;
+
 import java.sql.Timestamp;
 
-import leap.orm.annotation.Column;
-import leap.orm.annotation.Id;
-import leap.orm.annotation.Table;
-import leap.orm.model.Model;
-@Table("leap_user")
+/**
+ * Created by liangwenhui on 2017/7/31.
+ */
 public class User extends Model {
     @Id
-    @Column(name="id")
-    private String id;
-    @Column(name="name")
-    private String name;
-    @Column(name="age")
-    private Integer age;
-    private String loginId;
-    @Column(name="password")
-    private String password;
+    private Integer userId;
+    private String userName;
+    private String departmentName;
+    private String position;
+    private String tel;
+    private String mail;
+    private Integer role;
     private Timestamp createdAt;
-    public String getId() {
-        return id;
+    private Timestamp updatedAt;
+
+    public Integer getUserId() {
+        return userId;
     }
-    public void setId(String id) {
-        this.id = id;
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
-    public String getName() {
-        return name;
+
+    public String getUserName() {
+        return userName;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-    public Integer getAge() {
-        return age;
+
+    public String getDepartmentName() {
+        return departmentName;
     }
-    public void setAge(Integer age) {
-        this.age = age;
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
-    public String getLoginId() {
-        return loginId;
+
+    public String getPosition() {
+        return position;
     }
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
+
+    public void setPosition(String position) {
+        this.position = position;
     }
-    public String getPassword() {
-        return password;
+
+    public String getTel() {
+        return tel;
     }
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
     public Timestamp getCreatedAt() {
         return createdAt;
     }
+
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

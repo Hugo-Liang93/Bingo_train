@@ -1,27 +1,24 @@
 package demo.controller;
 
-import demo.model.User;
-import leap.orm.query.CriteriaQuery;
+import demo.model.EntryBlank;
+import leap.core.exception.RecordNotSavedException;
+import leap.web.annotation.Controller;
 
-import java.util.List;
 
 /**
  * Created by liangwenhui on 2017/7/28.
  */
 public class UserModelController {
-    public List<User> query(String name, Integer age, String loginId){
-        if(name == null && age == null && loginId == null){
-            return User.all();
+    public EntryBlank create(Integer userId,Integer courseId){
+        EntryBlank eb=new EntryBlank();
+        eb.setUserId(userId);
+        eb.setCourseId (courseId);
+        try {
+            eb.create();
+            return eb;
+        }catch (RecordNotSavedException e){
+            e.printStackTrace();
+            return null;
         }
-        if(name == null){
-            name = "";
-        }
-        if(loginId == null){
-            loginId = "";
-        }
-        CriteriaQuery<User> cq = User.<User>query();
-        cq.where("name like ? and age like ? and loginId like ?",
-                "%"+name+"%",age==null?"%%":"%"+age+"%","%"+loginId+"%");
-        return cq.list();
     }
 }

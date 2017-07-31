@@ -8,4 +8,10 @@
         <property name="maxWait" value="30000"></property>
         <property name="maxActive" value="50"></property>
     </bean>
+    <!--<bean name="other" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true">-->
+        <!--<property name="driverClassName" value="${jdbcDriver}"></property>-->
+        <!--<property name="jdbcUrl" value="${jdbcUrl}"></property>-->
+        <!--<property name="username" value="${jdbcUsername}"></property>-->
+        <!--<property name="password" value="${jdbcPassword}"></property>-->
+    <!--</bean>-->
 </beans>
