@@ -1,0 +1,55 @@
+header.bui-bar{
+	background-color: #6AC5D3;
+}
+.bui-box-center {
+	width: 100%;
+	height: .5rem;
+	border: 0rem;
+}
+.bui-box-center .bui-btn-center{
+	width: 100%;
+	height: .5rem;
+	line-height: .2rem;
+	background-color: #C4DFB8;
+}
+.bui-box-center.image-box {
+	width: 100%;
+	height: 2rem;
+	/*border: 1px solid red;*/
+	background-color:#FFEEBC; 
+	margin-bottom: .1rem;
+}
+.bui-box-center.image-box img{
+	display: inline-block;
+	width: 5rem；
+	height: 1.2rem;
+	/*border: 1px solid red;*/
+}
+/*.bui-box.course-deadline{
+	margin-bottom: .3rem;
+	margin-left: .3rem;
+}*/
+.bui-box.course-name{
+	/*border: 1px solid red;*/
+	width: 100%;
+	height: .4rem;
+	line-height: .4rem;
+}
+.bui-box .icon-home.logo-left{
+	margin-left: .3rem;
+	margin-right: .2rem;
+	margin-bottom: .3rem;
+}
+.bui-box.course-deadline{
+	/*border: 1px solid red;*/
+	width: 100%;
+	height: .4rem;
+	line-height: .4rem;
+	margin-bottom: .5rem;
+}
+.bui-box.div-style{
+	border-bottom: 1px solid #BABABA;
+	width: 100%;
+	height: .6rem;
+	line-height: .6rem;
+}

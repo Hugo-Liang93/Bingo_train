@@ -2,13 +2,14 @@ package demo.model;
 
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
+import leap.orm.model.Model;
 
 import java.sql.Timestamp;
 
 /**
  * Created by liangwenhui on 2017/7/31.
  */
-public class SignIn {
+public class SignIn extends Model{
     @Id
     @Column(name="sign_in_id")
     private Integer signInId;

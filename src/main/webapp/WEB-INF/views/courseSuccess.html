@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>签到成功</title>
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="../../commons/font-awesome-4.7.0/css/font-awesome.css" />
+	<link rel="stylesheet" href="../../public/css/bui.css" />
+	<link rel="stylesheet" href="../../public/css/arriveSuccess.css" />
+	<!-- 依赖库 手机调试的js引用顺序如下 -->
+	<script src="../../public/js/zepto.js"></script>
+	<script src="../../public/js/plugins/fastclick.js"></script>
+	<!-- BUI库 -->
+	<script src="../../public/js/bui.js"></script>
+	<script src="../../public/js/app/_config.js"></script>
+	<script>
+        bui.ready(function () {
+            // 这里写业务及控件初始化
+            $.ajax({
+                url: "sign_in_model/query",
+                data: {
+                    courseId : 1
+                },
+                type : "POST",
+                success : function (data) {
+                    console.log(data);
+                    $("#time").html(data);
+                },
+                error : function (status) {
+                    alert(status)
+                }
+            })
+			/* bui.ajax({
+			 url: "sign_in_model/save",
+			 data: {
+			 courseId : 1
+			 },//接口请求的参数
+
+			 // 可选参数
+			 method: "POST",
+			 timeout: 20000
+			 }).done(function(result){
+			 console.log(result);
+			 /!*  $("#time").html(result);*!/
+			 }).fail(function(result,status){
+			 //console.log(status)//"timeout"
+			 bui.alert("签到出错了");
+			 });*/
+
+        })
+	</script>
+</head>
+<body>
+<div class="bui-page">
+	<header class="bui-bar">
+		<div class="bui-bar-left">
+			<!-- 左边按钮 -->
+			<a class="bui-btn" onclick="bui.back();"><i class="icon-back"></i></a>
+		</div>
+		<div class="bui-bar-main"><!--用户名--></div>
+		<div class="bui-bar-right">
+			<!-- 右边按钮 -->
+		</div>
+	</header>
+	<main>
+		<!-- 正文内容 -->
+		<!-- 显示签到成功信息 -->
+		<div class="bui-box-center">
+			<div class="bui-fluid-center  alter-box">
+				<div class="bui-box-center">
+					<!--<i class="fa fa-thumbs-o-up fa-2x"></i>-->
+					<div class="font-style">您已经添加课程</div>
+					<i class="fa fa-check fa-3x"></i>
+				</div>
+
+			</div>
+		</div>
+
+	</main>
+	<footer>
+		<!-- 底部内容 -->
+		<!-- 显示签到时间 -->
+		<div class="bui-box-center time-box">
+			<i class="fa fa-clock-o fa-3x"></i>
+			<div id="time" class="font-style"><!--12:30:00--></div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>

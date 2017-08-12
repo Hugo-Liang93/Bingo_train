@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <title>leap</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>首页</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+    <script>
+        bui.ready(function () {
+            // 这里写业务及控件初始化
+            
+        })
+    </script>
 </head>
 <body>
-hello ${name}!
+    <div class="bui-page">
+        <header class="bui-bar">
+            <div class="bui-bar-left">
+                <!-- 左边按钮 -->
+                <a class="bui-btn" onclick="bui.back();"><i class="icon-back"></i></a>
+            </div>
+            <div class="bui-bar-main">培训</div>
+            <div class="bui-bar-right">
+                <!-- 右边按钮 -->
+            </div>
+        </header>
+        <main>
+            <!-- 正文内容 -->
+            
+        </main>
+        <footer>
+            <!-- 底部内容 -->
+            <ul class="bui-nav">
+                <li class="bui-btn bui-box-vertical active">
+                	<i class="icon-home"></i>
+                	<div class="span1">首页</div>
+                </li>
+                <li class="bui-btn bui-box-vertical">
+                	<i class="icon-home"></i>
+                	<div class="span1">课程</div>
+                </li>
+                <li class="bui-btn bui-box-vertical">
+                	<i class="icon-home"></i>
+                	<div class="span1">添加</div>
+                </li>
+                <li class="bui-btn bui-box-vertical">
+                	<i class="icon-home"></i>
+                	<div class="span1">我的</div>
+                </li>
+            </ul>
+        </footer>
+    </div>
 </body>
 </html>

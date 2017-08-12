@@ -1,0 +1,115 @@
+
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>BUI</title>
+    <link rel="stylesheet" href="../../commons/font-awesome-4.7.0/css/font-awesome.css" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="../../public/css/arriveSuccessResult.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/cordova.js"></script>
+    <script src="../../public/js/bingotouch.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+
+<style type="text/css">
+      
+   </style>
+
+
+</head>
+
+<body>
+<div class="bui-page">
+    <header class="bui-bar">
+        <div class="bui-bar-left">
+        </div>
+        <div class="bui-bar-main">签到信息汇总</div>
+        <div class="bui-bar-right">
+        </div>
+    </header>
+    <main id="main">
+
+      
+
+        <div id="content">
+            
+ 
+
+          
+                 
+          <!--   <div class="title">
+              <span >  选择题平均分   </span>
+          </div> -->
+        
+
+            <table id="table" class="table" >
+                <tr >
+                    <th> 姓名</th>
+                    <th >部门</th>
+                     <th >签到时间</th>
+                </tr>
+              <tr>
+                    <td >莫星键</td>
+                    <td >东莞区域支撑中心东莞</td>
+                    <td>8:50:32</td>
+                </tr>
+                <tr>
+                    <td >江锦泰</td>
+                    <td >政企事业部</td>
+                    <td>8:55:16</td>
+                </tr>
+                 
+            </table>
+            </div>
+
+
+
+
+    </main>
+    <footer></footer>
+</div>
+</body>
+
+<script type="text/javascript">
+    bui.ready(function (argument) {
+
+        /** 查询签到*/
+        bui.ajax({
+            url: "sign_in_model/query",
+            data: {
+                courseId : 1
+            },//接口请求的参数
+        
+            // 可选参数
+            method: "POST",
+            timeout: 20000
+        }).done(function(result){
+            var result = eval(result);
+            for(var i=0; i<result.length;i++){
+                var name = result[i].name;
+                var departmentName = result[i].departmentName;
+                var time = result[i].time;
+                var html = "<tr><td >"+name+"</td><td >"+departmentName+"</td><td >"+time+"</td></tr>";
+                $("#table").append(html);
+            }
+        }).fail(function(result,status){
+            console.log(status)//"timeout"
+        });
+
+
+
+        
+    })
+</script>
+
+
+
+</html>

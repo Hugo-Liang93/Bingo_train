@@ -1,0 +1,53 @@
+.bui-scroll .bui-scroll-main {
+	margin-top: .4rem;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .title-style{
+	font-weight: bolder;
+	margin-left: .76rem; 
+	margin-right: .3rem;
+	margin-bottom: .2rem;
+	margin-top: .2rem;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .title-style1{
+	font-weight: bolder;
+	margin-left: 1.2rem; 
+	margin-right: .3rem;
+	margin-bottom: .2rem;
+	margin-top: .2rem;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .title-style2{
+	font-weight: bolder;
+	margin-left: .32rem; 
+	margin-right: .3rem;
+	margin-bottom: .2rem;
+	margin-top: .2rem;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .span1 .date-style{
+	border: 0rem;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .span1 textarea.textarea-style{
+	border: 1px solid #666;
+	margin-bottom: .2rem; 
+	text-align: left;
+}
+.bui-scroll .bui-scroll-main .bui-list .bui-box .span1 .bui-btn.btn-select{
+	height: .3rem;
+	text-align: left;
+	padding-left: 0px;
+	border: 0rem;
+}
+.bui-box.box-submit {
+	margin-top: .3rem;
+	margin-bottom: .2rem;
+}
+
+.bui-box.box-submit .bui-btn-center.btn-add{
+	margin-left: 1.2rem;
+	background-color: #6AC5D3;
+	font-size: .2.5rem;
+}
+.bui-box.box-submit .bui-btn-center.btn-cancel{
+	margin-left: 1rem;
+	background-color: #6AC5D3;
+	font-size: .2.5rem;
+}

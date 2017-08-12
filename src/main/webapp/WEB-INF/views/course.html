@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>BUI</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/cordova.js"></script>
+    <script src="../../public/js/bingotouch.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+</head>
+
+<body>
+
+<div ng-app="myApp" ng-controller="httCtrl">
+    <div class="bui-page">
+        <header class="bui-bar">
+            <div class="bui-bar-left">
+                <!-- 左边按钮 -->
+                <a class="bui-btn" onclick="bui.back();"><i class="icon-back"></i></a>
+            </div>
+            <div class="bui-bar-main">课程</div>
+            <div class="bui-bar-right">
+                <!-- 右边按钮 -->
+            </div>
+        </header>
+        <main>
+            <!-- 正文内容 -->
+            <h3 class="section-title">课程列表</h3>
+            <div class="bui-list" ng-repeat="x in datas" >
+
+                <div class="bui-btn bui-box" ng-click="jump('/courseDetail.html')">
+                    <img src="../../public/images/Layer-0.png">
+                </div>
+                <div class="bui-btn bui-box clearactive">
+                    <div class="bui-label">
+                        <label>课程名称</label>
+                    </div>
+                    <div class="span1">
+                        <input id="courseName" type="text" class="bui-input" ng-model="x.courseName">
+                    </div>
+                    <div class="bui-label" >
+                        <label style="float:right; margin-right: 20px">讲师:</label>
+                    </div>
+                    <div class="span1" >
+                        <input  id="teacherName" type="text" class="bui-input" ng-model="x.teacherName">
+                    </div>
+
+                </div>
+
+                <div class="bui-btn bui-box clearactive">
+
+
+                    <div class="bui-label">
+                        <label>培训时间</label>
+                    </div>
+                    <div class="span1">
+                        <input id="trainingTime" type="text" class="bui-input" ng-model="x.trainingTime" >
+                    </div>
+
+                    <div class="bui-bar-right bui-bar-text" ng-click="onSign(x.courseName)">
+                        <a class="bui-btn-inline" style="margin-right: 20px">报名</i></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+        <footer>
+            <!-- 底部内容 -->
+            <ul class="bui-nav bui-fluid">
+                <li class="bui-btn bui-box-vertical span3"><i class="icon-home"></i>
+                    <div class="span1">首页</div>
+                </li>
+                <li class="bui-btn bui-box-vertical span3"><i class="icon-home" ng-click="jump('course.html')"></i>
+                    <div class="span1">课程</div>
+                </li>
+                <li class="bui-btn bui-box-vertical span3"><i class="icon-home" ng-click="jump('addCourse.html')"></i>
+                    <div class="span1">添加</div>
+                </li>
+                <li class="bui-btn bui-box-vertical span3"><i class="icon-home" ng-click="jump('showSignCourse.html')"></i>
+                    <div class="span1">个人</div>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('httCtrl', function($scope, $http) {
+        $http.post("/course/query_all_course")
+            .then(function (response) {
+        $scope.datas=response.data;
+    });
+    $scope.onSign = function(courseName) {
+        $http.get("/course/course_enroll", {
+            params: {
+                "courseName": courseName
+            }
+        }).then(function(response) {
+            $scope.status = response.data.status;
+        });
+        window.location='/baomingSuccess.html';
+    }
+        $scope.jump = function(url) {
+            window.location = url;
+        }
+
+    });
+</script>
+</body>
+
+</html>

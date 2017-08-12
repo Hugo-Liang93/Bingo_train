@@ -1,0 +1,43 @@
+.bui-box-center.box-prompt{
+	/*background-color: red;*/
+	margin-top: 2rem;
+	margin-bottom: .2rem;
+}
+.bui-box-center.box-prompt .span1 .time-prompt{
+	margin-right: .1rem;
+	font-size: .22rem;
+}
+
+.bui-box-center .content-prompt{
+	font-size: .22rem;
+	margin-bottom: .1rem;
+	margin-top: .1rem;
+	width: 3.7rem;
+	text-align: left;
+}
+.bui-box-center .span1.add-centent{
+	margin-bottom: .3rem;
+}
+.bui-box-center.box-submit {
+	margin-top: .3rem;
+	margin-bottom: .2rem;
+
+}
+
+.bui-box.box-submit .bui-btn-center.btn-add{
+	/*margin-left: .84rem;*/
+	background-color: #6AC5D3;
+	font-size: .25rem;
+	width: 1.2rem;
+	text-align:center;
+}
+.bui-box.box-submit .bui-btn-center.btn-cancel{
+	margin-left: 1.34rem;
+	background-color: #6AC5D3;
+	font-size: .25rem;
+	width: 1.2rem;
+}
+
+.bui-btn{
+	/*margin:0 15% 0 16%;*/
+}

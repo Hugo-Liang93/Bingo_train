@@ -12,6 +12,7 @@ public class User extends Model {
     @Id
     private Integer userId;
     private String userName;
+    private String password;
     private String departmentName;
     private String position;
     private String tel;
@@ -34,6 +35,14 @@ public class User extends Model {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getDepartmentName() {

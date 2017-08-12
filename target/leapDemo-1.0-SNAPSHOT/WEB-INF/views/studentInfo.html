@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>个人信息</title> 
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../commons/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/studentInfo.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/cordova.js"></script>
+    <script src="../../public/js/bingotouch.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+    <style type="text/css">
+       
+    </style>
+
+
+
+</head>
+
+<body>
+<div class="bui-page">
+    <header class="bui-bar">
+        <div class="bui-bar-left">
+        </div>
+        <div class="bui-bar-main">个人信息</div>
+        <div class="bui-bar-right">
+        </div>
+    </header>
+    <main id="main">
+
+      <div class="info">
+
+
+      <!-- 盒子等比布局-->
+      <div class="bui-box">
+        <div class="span3">
+        </div>
+        <div class="span6">
+
+          <div class="span12 "> 
+            <i class="fa fa-user-circle fa-2x"></i>
+            <span id="userName" class="user">
+
+            </span>
+           </div>
+          <div id="departmentName" class="span12 dept" >
+
+            </div>
+          </div>
+
+        <div class="span3">
+        </div>
+      </div>
+       
+
+      </div>
+
+
+
+
+     <!--  <h4 class="name">莫星键</h4>
+     <h4 class="dept">东莞区域支撑中心</h4> -->
+
+
+   <!--    <div>
+     <span> 已学课程</span>
+   </div> -->
+
+      <div class="course">
+        <table id="trainedCrouse" class="bui-table">
+          <tr>
+            <th colspan="2">
+             <i class="fa fa-book"></i>
+              已学课程
+            </th>
+          </tr>
+            <!--<tr>
+              <td>1</td>
+              <td>商务礼仪</td>
+            </tr>
+             <tr>
+              <td>2</td>
+              <td>需求分析</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>接口设计与调用</td>
+            </tr>-->
+        </table>
+
+      </div>
+
+
+
+
+    </main>
+    <footer></footer>
+</div>
+</body>
+
+<script type="text/javascript">
+
+    var userId;
+    bui.ready(function (argument) {
+
+
+        /**查询用户姓名和部门**/
+        $.ajax({
+           url : "user_model/query_user",
+           type : "GET",
+            async : true,
+            success :function (data) {
+                var userName = data.name;
+                var departmentName = data.departmentName;
+//                userId = data.userId;
+                $("#userName").html(userName);
+                $("#departmentName").html(departmentName);
+
+            },
+            error : function (status) {
+                console.log(status);
+            }
+        });
+
+        /**查询用户已学课程**/
+        $.ajax({
+            url : "sign_in_model/query_by_user_id",
+            type : "GET",
+            async : true,
+            success :function (data) {
+                var result = eval(data);
+                for(var i=0;i<result.length;i++){
+                    var courseName = result[i].courseName;
+                    var html = "<tr><td>"+(i+1)+"</td><td>"+courseName+"</td></tr>";
+                    $("#trainedCrouse").append(html);
+                }
+            },
+            error : function (status) {
+                console.log(status);
+            }
+        });
+    })
+</script>
+
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>填写反馈</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/feedback.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/cordova.js"></script>
+    <script src="../../public/js/bingotouch.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+    <style type="text/css">
+       
+    </style>
+
+
+
+</head>
+
+<body>
+<div class="bui-page">
+    <header class="bui-bar">
+        <div class="bui-bar-left">
+        </div>
+        <div class="bui-bar-main">填写反馈</div>
+        <div class="bui-bar-right">
+        </div>
+    </header>
+    <main id="main">
+        <div id="content">
+        </div>
+        <!-- 中间内容 -->
+        <!-- <h3>1、您认为培训内容是否系统和完整？</h3>
+            <div class="bui-box" >
+              <div class="span3" >
+                <input type="radio" class="bui-radio" name="one" value="1">1
+              </div>
+              <div class="span3" >
+               <input type="radio" class="bui-radio" name="one" value="2">2
+              </div>
+              <div class="span3" >
+                   <input type="radio" class="bui-radio" name="one" value="3">3
+              </div>
+              <div class="span3">
+                   <input type="radio" class="bui-radio" name="one" value="4">4
+              </div>
+          </div>
+           <div class="bui-box" >
+              <div class="span3" >
+                <input type="radio" class="bui-radio" name="one" value="5">5
+              </div>
+              <div class="span3" >
+               <input type="radio" class="bui-radio" name="one" value="6">6
+              </div>
+              <div class="span3" >
+                   <input type="radio" class="bui-radio" name="one" value="7">7
+              </div>
+              <div class="span3">
+                   <input type="radio" class="bui-radio" name="one" value="8">8
+              </div>
+              <br>
+          </div>
+          <table>
+              <tr>
+                  <td >
+                      <input type="radio" class="bui-radio" name="one" value="1">1
+                  </td>
+                   <td >
+                      <input type="radio" class="bui-radio" name="one" value="2">2
+                  </td>
+                  <td  >
+                      <input type="radio" class="bui-radio" name="one" value="3">3
+                  </td>
+                  <td  >
+                      <input type="radio" class="bui-radio" name="one" value="4">4
+                  </td>
+              </tr>
+              <tr>
+                  <td >
+                      <input type="radio" class="bui-radio" name="one" value="5">5
+                  </td>
+                   <td >
+                      <input type="radio" class="bui-radio" name="one" value="6">6
+                  </td>
+                  <td >
+                      <input type="radio" class="bui-radio" name="one" value="7">7
+                  </td>
+                  <td >
+                      <input type="radio" class="bui-radio" name="one" value="8">8
+                  </td>
+              </tr>
+          </table> -->
+
+
+
+
+        <!--  <h3>3、对培训资料有哪些改善的建议？</h3>
+          <textarea class="bui-input" id="data" placeholder="请输入您的建议"></textarea>
+          -->
+
+
+
+        <br/>
+        <!-- <div id="save" style="display: none">
+            <div class="bui-btn primary" id="submit" >提交</div>
+            <div class="bui-btn danger">取消</div>
+        </div> -->
+
+
+
+
+    </main>
+    <footer></footer>
+</div>
+</body>
+
+<script type="text/javascript">
+
+    bui.ready(function (argument) {
+        $.ajax({
+            url : "feedback_model/get_feedbacks",
+            type : "get",
+            async : false,
+            success : function(data) {
+                var result = eval(data);
+                var array = new Array("one", "two", 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'tweleve', 'thirteen');
+                for (var i = 0; i < result.length; i++) {
+                    var id = result[i].feedbackId;
+                    var question = result[i].question;
+                    var type = result[i].type;
+                    var grade = result[i].grade;
+                    //选择题
+                    if (type == 0) {
+                        var html = " <h3>" + id + '、' + question + "</h3><div class='bui-box' ><div class='span3' > <input type='radio' class='bui-radio' name='" + array[i] + "' value='1'>1</div><div class='span3' > <input type='radio' class='bui-radio' name='" + array[i] + "' value='2'>2</div><div class='span3' >     <input type='radio' class='bui-radio' name='" + array[i] + "' value='3'>3</div><div class='span3'>     <input type='radio' class='bui-radio' name='" + array[i] + "' value='4'>4</div></div>  <div class='bui-box' ><div class='span3' >  <input type='radio' class='bui-radio' name='" + array[i] + "' value='5'>5</div><div class='span3' > <input type='radio' class='bui-radio' name='" + array[i] + "' value='6'>6</div><div class='span3' >     <input type='radio' class='bui-radio' name='" + array[i] + "' value='7'>7</div><div class='span3'>     <input type='radio' class='bui-radio' name='" + array[i] + "' value='8'>8</div>";
+                        $("#content").append(html);
+                    } else {
+                        var html = " <h3>" + id + '、' + question + "</h3><textarea class='bui-input' id='" + array[i] + "' placeholder='请输入您的建议'></textarea>";
+                        $("#content").append(html);
+                    }
+                   
+                }
+              console.log("1");
+              var submit = "<br/><div class='bui-btn primary' id='submit'>提交</div>";
+               $("#main").append(submit);
+                // $("#save").show();
+                console.log("2");
+            },
+            error : function (data) {
+               window.location.href = "/index.html";
+                alert("fail");
+                console.log(data);
+            }
+        });
+
+
+        bui.btn("#submit").submit(function(loading){
+            var one = $("input[name='one']:checked").val();
+            var two = $("input[name='two']:checked").val();
+            var three = $("#three").val();
+            var four = $("input[name='four']:checked").val();
+            var five = $("input[name='five']:checked").val();
+            var six = $("input[name='six']:checked").val();
+            var seven = $("input[name='seven']:checked").val();
+            var eight = $("#eight").val();
+            var nine = $("input[name='nine']:checked").val();
+            var ten = $("#ten").val();
+            var eleven = $("input[name='eleven']:checked").val();
+            var tweleve = $("#tweleve").val();
+            var thirteen = $("input[name='thirteen']:checked").val();
+
+            if (one == null) {
+              bui.alert("第1题选择题为空，请选择");
+              return;
+            }else if(two == null){
+              bui.alert("第2题选择题为空，请选择");
+              return;
+            }else if(four == null){
+              bui.alert("第4题选择题为空，请选择");
+              return;
+            }else if(five == null){
+              bui.alert("第5题选择题为空，请选择");
+              return;
+            }else if(six == null){
+              bui.alert("第6题选择题为空，请选择");
+              return;
+            }else if(seven == null){
+              bui.alert("第7题选择题为空，请选择");
+              return;
+            }else if(nine == null){
+              bui.alert("第9题选择题为空，请选择");
+              return;
+            }else if(eleven == null){
+              bui.alert("第11题选择题为空，请选择");
+              return;
+            }else if(thirteen == null){
+              bui.alert("第13题选择题为空，请选择");
+              return;
+            }
+
+            var string = "[{'course_id' : 1,'num' : 1,'content' : '"+one+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 2,'content' : '"+two+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 3,'content' : '"+three+"','type' : 1}," +
+                "{'course_id' : 1,'num' : 4,'content' : '"+four+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 5,'content' : '"+five+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 6,'content' : '"+six+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 7,'content' : '"+seven+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 8,'content' : '"+eight+"','type' : 1}," +
+                "{'course_id' : 1,'num' : 9,'content' : '"+nine+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 10,'content' : '"+ten+"','type' : 1}," +
+                "{'course_id' : 1,'num' : 11,'content' : '"+eleven+"','type' : 0}," +
+                "{'course_id' : 1,'num' : 12,'content' : '"+tweleve+"','type' : 1}," +
+                "{'course_id' : 1,'num' : 13,'content' : '"+thirteen+"','type' : 0}]";
+
+            bui.ajax({
+                url: "feedback_model/save",
+                data: {
+                    json : string
+                   /* courseId : 1,
+                    one : one,
+                    two : two,
+                    four : four,
+                    five : five,
+                    six : six,
+                    seven : seven,
+                    nine : nine,
+                    eleven : eleven,
+                    thirteen : thirteen*/
+                },//接口请求的参数
+
+                // 可选参数
+                method: "POST",
+                timeout: 20000
+            }).done(function(result){
+                bui.alert("success");
+                loading.stop();
+
+            }).fail(function(result,status){
+                bui.alert("fail");
+                //console.log(status)//"timeout"
+               
+            });
+
+
+        });
+
+    })
+</script>
+
+
+<!--
+<script type="text/javascript">
+       var content = "[{'feedback_id':1,'question':'您认为培训内容是否系统和完整？','type':0,'grade':8},{'feedback_id':2,'question':'培训资料是否实用？','type':0,'grade':8},{'feedback_id':3,'question':'对培训资料有哪些改善的建议？','type':1,'grade':8},{'feedback_id':4,'question':'您认为讲师的表达能力如何？','type':0,'grade':8},{'feedback_id':5,'question':'讲师讲课的条理清晰程度如何？','type':0,'grade':8},{'feedback_id':6,'question':'讲师在培训中结合案例分析的能力如何？','type':0,'grade':8},{'feedback_id':7,'question':'您认为讲师活跃课堂的能力如何？','type':0,'grade':8},{'feedback_id':8,'question':'您对培训讲师有那些改善建议？','type':1,'grade':8},{'feedback_id':9,'question':'您觉得课程安排是否合理？','type':0,'grade':8},{'feedback_id':10,'question':'您对课程安排有什么改善建议？','type':1,'grade':8},{'feedback_id':11,'question':'您认为培训环境如何？','type':0,'grade':8},{'feedback_id':12,'question':'您对培训环境有什么改善建议？','type':1,'grade':8},{'feedback_id':13,'question':'请您对此次培训的整体效果评分？','type':0,'grade':8}]";
+       var result = eval(content);
+       var array = new Array("one","two",'three','four','five','six','seven','eight','nine','ten','eleven','tweleve','thirteen');
+       for(var i=0; i<result.length;i++){
+           console.log(array[i]);
+           var id = result[i].feedback_id;
+           var question = result[i].question;
+           var type = result[i].type;
+           var grade = result[i].grade;
+           //选择题
+           if(type == 0){
+               html = " <h3>"+id+'、'+question+"</h3><div class='bui-box' ><div class='span3' > <input type='radio' class='bui-radio' name='"+array[i]+"' value='1'>1</div><div class='span3' > <input type='radio' class='bui-radio' name='"+array[i]+"' value='2'>2</div><div class='span3' >     <input type='radio' class='bui-radio' name='"+array[i]+"' value='3'>3</div><div class='span3'>     <input type='radio' class='bui-radio' name='"+array[i]+"' value='4'>4</div></div>  <div class='bui-box' ><div class='span3' >  <input type='radio' class='bui-radio' name='"+array[i]+"' value='5'>5</div><div class='span3' > <input type='radio' class='bui-radio' name='"+array[i]+"' value='6'>6</div><div class='span3' >     <input type='radio' class='bui-radio' name='"+array[i]+"' value='7'>7</div><div class='span3'>     <input type='radio' class='bui-radio' name='"+array[i]+"' value='8'>8</div>";
+                   $("#main").append(html);
+           }else{
+               var html = " <h3>"+id+'、'+question+"</h3><textarea class='bui-input' id='"+array[i]+"' placeholder='请输入您的建议'></textarea>";
+               $("#main").append(html);
+           }
+
+
+       }
+   </script>-->
+</html>

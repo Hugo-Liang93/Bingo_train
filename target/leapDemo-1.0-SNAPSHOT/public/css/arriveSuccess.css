@@ -1,0 +1,69 @@
+
+/* 
+.bui-box-center.time-box{
+	width: 100%;
+	height:5rem;
+	background-color: #fff;
+	text-align: center;
+
+}
+
+.bui-box-center{
+	background-color: #fff;
+
+}
+.bui-box-center .bui-fluid-center.alter-box{
+	width: 100%;
+	margin-top: 2.5rem;
+	margin-bottom: .1rem;
+	text-align: center;
+
+}
+.bui-box-center .bui-fluid-center.alter-box .font-style{
+	font-size: .5rem;
+	color: #777;
+	margin-left:.2rem; 
+	margin-bottom: 0rem;
+}
+.bui-box-center.time-box .font-style{
+	font-size: .5rem;
+	color: #777;
+}
+ */
+
+
+
+
+.bui-box-center.time-box{
+	width: 100%;
+	height:5rem;
+	background-color: #F8F8F8;
+	text-align: center;
+}
+.bui-box-center .bui-fluid-center.alter-box{
+	width: 100%;
+	
+	margin-top: 2.5rem;
+	margin-bottom: .1rem;
+	text-align: center;
+/*	background-color: #fff;*/
+}
+.bui-box-center .bui-fluid-center.alter-box .font-style{
+	font-size: .5rem;
+	color: #777;
+	margin-left:.2rem; 
+	margin-bottom: 0rem;
+}
+.bui-box-center.time-box .font-style{
+	font-size: .5rem;
+	color: #777;
+	margin-left:.2rem; 
+}
+
+.fa-check {
+	color:greenyellow;
+}
+
+.fa-clock-o{
+	color:greenyellow;
+}

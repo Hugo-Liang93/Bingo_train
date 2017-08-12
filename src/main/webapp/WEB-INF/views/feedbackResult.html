@@ -1,0 +1,190 @@
+
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>查看反馈结果</title>
+    <link rel="stylesheet" href="../../commons/font-awesome-4.7.0/css/font-awesome.css" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../public/css/bui.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="../../public/css/feedbackResult.css" />
+    <!-- 依赖库 手机调试的js引用顺序如下 -->
+    <script src="../../public/js/zepto.js"></script>
+    <script src="../../public/js/cordova.js"></script>
+    <script src="../../public/js/bingotouch.js"></script>
+    <script src="../../public/js/plugins/fastclick.js"></script>
+    <!-- BUI库 -->
+    <script src="../../public/js/bui.js"></script>
+    <script src="../../public/js/app/_config.js"></script>
+
+<style type="text/css">
+      
+   </style>
+
+
+</head>
+
+<body>
+<div class="bui-page">
+    <header class="bui-bar">
+        <div class="bui-bar-left">
+        </div>
+        <div class="bui-bar-main">反馈结果</div>
+        <div class="bui-bar-right">
+        </div>
+    </header>
+    <main id="main">
+
+            <ul class="bui-fluid-2 className" >
+              <li>
+                  <i class="fa fa-book"></i> 
+                  课程名称    
+              </li>
+              <li id="name">
+                  软件设计
+              </li>
+            </ul>  
+
+
+        <div id="content">
+            
+ 
+
+          
+                 
+            <div class="title">
+                <span >  选择题平均分   </span>
+            </div>
+        
+        <div class="average">
+            <table id="average" class="table" >
+                <tr >
+                    <th> 题号</th>
+                    <th >平均分</th>
+                </tr>
+               <!-- <tr>
+                    <td >第1题</td>
+                    <td >7</td>
+                </tr>
+                <tr>
+                    <td>第2题</td>
+                    <td>7</td>
+                </tr>-->
+
+
+                </tr>
+
+
+            </table>
+            </div>
+
+            <div class="title">
+                <span>建议内容</span>
+            </div>
+
+
+            
+         <table id="remark">
+            <!-- <tr>
+                 <td >3</td>
+                 <td class="advice">老师讲得不太好</td>
+             </tr>
+             <tr>
+                 <td >3</td>
+                 <td class="advice">还行</td>
+             </tr>-->
+
+             
+         </table>
+         
+
+
+
+         </div>
+
+
+
+
+    </main>
+    <footer></footer>
+</div>
+</body>
+
+<script type="text/javascript">
+
+
+
+
+    
+    bui.ready(function (argument) {
+        /** 查询课程名称*/
+        bui.ajax({
+            url: "feedback_model/query_class_name",
+            data: {
+                courseId : 1
+            },//接口请求的参数
+        
+            // 可选参数
+            method: "GET",
+            timeout: 20000
+        }).done(function(result){
+            $("#name").html(result);
+        }).fail(function(result,status){
+            //console.log(status)//"timeout"
+        });
+
+
+
+        /** 查询选择题分数*/
+        bui.ajax({
+            url: "feedback_model/query_objectives",
+            data: {
+                courseId : 1
+            },//接口请求的参数
+        
+            // 可选参数
+            method: "GET",
+            timeout: 20000
+        }).done(function(result){
+            var result = eval(result);
+            for(var i=0; i<result.length;i++){
+                var avgGrade = result[i].avgGrade;
+                var num = result[i].num;
+                var html = "<tr><td >第"+num+"题</td><td >"+avgGrade+"</td></tr>";
+                $("#average").append(html);
+            }
+        }).fail(function(result,status){
+            //console.log(status)//"timeout"
+        });
+
+        /** 查询建议*/
+        bui.ajax({
+            url: "feedback_model/query_remark",
+            data: {
+                courseId : 1
+            },//接口请求的参数
+        
+            // 可选参数
+            method: "GET",
+            timeout: 20000
+        }).done(function(result){
+            var result = eval(result);
+            for(var i=0; i<result.length;i++){
+                var remark = result[i].remark;
+                var num = result[i].num;
+                var html = "<tr><td>"+num+"</td><td class='advice'>"+remark+"</td></tr>";
+                $("#remark").append(html);
+            }
+        }).fail(function(result,status){
+            //console.log(status)//"timeout"
+        });
+
+        
+    })
+</script>
+
+
+
+</html>
