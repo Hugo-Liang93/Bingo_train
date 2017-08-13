@@ -3,8 +3,8 @@
     <base-package>demo</base-package>
     <properties>
         <property name="jdbcDriver">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/leap_demo1</property>
+        <property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/train</property>
         <property name="jdbcUsername">root</property>
-        <property name="jdbcPassword">hugo931124</property>
+        <property name="jdbcPassword">root</property>
     </properties>
 </config>

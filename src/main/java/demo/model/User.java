@@ -17,6 +17,7 @@ public class User extends Model {
     private String position;
     private String tel;
     private String mail;
+    //用户角色，0是管理员，1是学生，2是讲师
     private Integer role;
     private Timestamp createdAt;
     private Timestamp updatedAt;

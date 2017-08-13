@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls xmlns="http://www.leapframework.org/schema/sqls">
+    <command key="fo-distnct-num">
+        select DISTINCT(num) from feedback_objectives
+    </command>
+
+    <command key="fo-avg-grade">
+        SELECT avg(grade) from feedback_objectives where course_id=:courseId and num=:num;
+    </command>
+</sqls>

@@ -96,7 +96,12 @@
         </main>
         <footer>
             <!-- 底部内容 -->
-            <div class="bui-btn primary bui-box-center" ng-click="onSign()">我要报名</div>
+
+
+            <div id="role">
+                <div class="bui-btn primary bui-box-center" ng-click="onSign()">我要报名</div>
+            </div>
+
             <ul class="bui-nav bui-fluid">
                 <li class="bui-btn bui-box-vertical span3"><i class="icon-home"></i>
                     <div class="span1">首页</div>
@@ -144,6 +149,26 @@
 
         $scope.jump = function(url) {
             window.location = url;
+        }
+
+    });
+
+
+  
+
+    $.ajax({
+        url : "/user_model/query_user",
+        type : "POST",
+        success : function (data) {
+            var user = eval(data);
+            var role = user.role;
+            if(role == 1){
+                var student = "<div class='bui-box'><div class='span6'><div class='bui-btn default bui-box-center' ng-click='signIn()'>签到</div></div> <div class='span6'><div class='bui-btn default bui-box-center' ng-click='feedback()'>反馈</div> </div> </div>";
+                $("#role").html(student);
+            }else if(role ==0){
+                var admin = "     <div class='bui-box'> <div class='span6'><div class='bui-btn default bui-box-center' ng-click='signInResult()'>查看签到</div> </div> <div class='span6'>     <div class='bui-btn default bui-box-center' ng-click='feedbackResult()'>查看反馈</div> </div></div>";
+                $("#role").html(admin);
+            }
         }
 
     });

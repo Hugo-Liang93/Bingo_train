@@ -31,7 +31,9 @@ public class CourseController {
     }
 
     public Map<String,String> queryCourse(String courseName,HttpServletRequest htr){
-        htr.getSession().setAttribute("userId",111);
+        User user = (User) htr.getSession().getAttribute("user");
+        Integer userId = user.getUserId();
+//        htr.getSession().setAttribute("userId",111);
         return courseService.queryCourse(courseName);
     }
 

@@ -21,7 +21,7 @@ header.bui-bar{
 }
 .bui-box-center.image-box img{
 	display: inline-block;
-	width: 5rem；
+	/*width: 5rem；*/
 	height: 1.2rem;
 	/*border: 1px solid red;*/
 }
