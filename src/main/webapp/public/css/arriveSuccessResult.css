@@ -4,25 +4,22 @@
 }
  */
 
-.title {
+/*.title {
     font-size: 18px;
     text-align: center;
     color: #333;
     margin: 10px 0 10px 0;
 }
-
+*/
 table td {
-
     text-align: center;
-    border-spacing: 0;
-    border-collapse: collapse;
-    margin-right: 20px;
-    padding: 6px 0 6px 0;
+    padding: 10px 0 10px 0;
 }
 
 
 table th {
-    padding: 6px 0 6px 0;
+    text-align: center;
+    font-size:18px;
 }
 
 /*   .bui-table th, .bui-table td {
@@ -39,10 +36,10 @@ table th {
     双：even
 **/
 table tr:nth-child(odd) {
-    background: #eee;
+    background-color: #eee;
 }
 
-table td:nth-child(even) {
+.table td:nth-child(even) {
     color: #888;
     font-size: 15px;
 }
@@ -52,13 +49,8 @@ table td:nth-child(odd) {
 }
 
 
-ul li:nth-child(even) {
-    color: #000;
-
-}
 
 .content {
     background: #fff;
 }
-
 

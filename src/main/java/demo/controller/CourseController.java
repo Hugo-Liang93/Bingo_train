@@ -30,7 +30,14 @@ public class CourseController {
         return us;
     }
 
+<<<<<<< HEAD
     public Map<String,String> queryCourse(String courseName){
+=======
+    public Map<String,String> queryCourse(String courseName,HttpServletRequest htr){
+        User user = (User) htr.getSession().getAttribute("user");
+        Integer userId = user.getUserId();
+//        htr.getSession().setAttribute("userId",111);
+>>>>>>> 0bfa08288afab13d3a7156b16012e343138b5ff1
         return courseService.queryCourse(courseName);
     }
 

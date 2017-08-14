@@ -72,7 +72,7 @@ public class SignInModelController {
             cqUser.where("user_id = ?",id);
             List<User> userList = cqUser.list();
             User user1 = userList.get(0);
-    //***修改
+            //***修改
             String name = user1.getUserName();
             String departmentName = user1.getDepartmentName();
             //获取时分秒时间
