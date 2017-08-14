@@ -14,7 +14,7 @@ public interface courseServiceImpl {
     User queryTeacher(String name);
     User queryTeacherById(Integer id);
     Map<String,String> queryCourse(String courseName);
-    Boolean courseEnroll(String courseName,String userId);
+    Boolean courseEnroll(String courseName,Integer  userId);
     List<Map<String,String>> queryAllCourse();
     List<Map<String,String>> querySignCourse(Integer userId);
 }

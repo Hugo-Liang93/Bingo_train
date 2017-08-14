@@ -56,14 +56,13 @@ public class CourseService implements courseServiceImpl {
         return ma;
     }
 
-    public Boolean courseEnroll(String courseName, String userId) {
+    public Boolean courseEnroll(String courseName,Integer  userId) {
         CriteriaQuery<TrainingCourse> cq = TrainingCourse.query();
         cq.where("courseName like ?" ,
                 "%"+courseName);
-        Integer uid=Integer.valueOf(userId);
         Integer courseId=cq.first().getCourseId();
         SignIn courseSign=new SignIn();
-        courseSign.setUserId(uid);
+        courseSign.setUserId(userId);
         courseSign.setCourseId(courseId);
         try {
             courseSign.create();

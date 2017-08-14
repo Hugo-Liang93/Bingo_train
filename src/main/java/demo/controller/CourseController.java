@@ -30,8 +30,7 @@ public class CourseController {
         return us;
     }
 
-    public Map<String,String> queryCourse(String courseName,HttpServletRequest htr){
-        htr.getSession().setAttribute("userId",111);
+    public Map<String,String> queryCourse(String courseName){
         return courseService.queryCourse(courseName);
     }
 
@@ -41,13 +40,15 @@ public class CourseController {
 
     public Map<String,Boolean> courseEnroll(String courseName,HttpServletRequest req){
         Map<String, Boolean> ma=new HashMap<String, Boolean>();
-        String userId=req.getSession().getAttribute("userId").toString();
-        ma.put("status",courseService.courseEnroll(courseName,userId));
+        User user= (User) req.getSession().getAttribute("user");
+
+        ma.put("status",courseService.courseEnroll(courseName,user.getUserId()));
         return ma;
     }
 
     public List<Map<String,String>> querySignCourse(HttpServletRequest req){
-        Integer userId=Integer.valueOf(req.getSession().getAttribute("userId").toString());
+        User user=(User)req.getSession().getAttribute("user");
+        Integer userId=user.getUserId();
         return courseService.querySignCourse(userId);
     }
 
